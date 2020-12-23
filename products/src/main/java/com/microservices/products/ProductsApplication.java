@@ -2,8 +2,11 @@ package com.microservices.products;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EntityScan("com.microservices.models")
 public class ProductsApplication {
 
 	public static void main(String[] args) {
