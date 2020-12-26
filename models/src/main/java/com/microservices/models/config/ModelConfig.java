@@ -1,14 +1,15 @@
-package com.microservices.items;
+package com.microservices.models.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class AppConfig {
-	
+public class ModelConfig {
+
 	@Bean(value = "restClient")
-	public RestTemplate registrationRestTemplate(){
+	public RestTemplate registrationRestTemplate() {
 		return new RestTemplate();
 	}
+
 }

@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.microservices.items.service.IItemService;
-import com.microservices.items.service.ItemServiceRestClient;
 import com.microservices.models.Item;
+import com.microservices.models.feigns.IItemService;
 
 @RestController
 public class ItemController {
 
 	@Autowired
-	@Qualifier("itemServiceFeign")
+	@Qualifier(value = "itemServiceFeign")
 	IItemService itemService;
 	
 	@GetMapping("/findAll")

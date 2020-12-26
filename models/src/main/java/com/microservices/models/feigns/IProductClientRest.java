@@ -1,4 +1,4 @@
-package com.microservices.items.clients;
+package com.microservices.models.feigns;
 
 import java.util.List;
 

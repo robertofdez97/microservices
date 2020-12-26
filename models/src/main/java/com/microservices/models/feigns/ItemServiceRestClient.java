@@ -1,4 +1,4 @@
-package com.microservices.items.service;
+package com.microservices.models.feigns;
 
 import java.util.Arrays;
 import java.util.HashMap;

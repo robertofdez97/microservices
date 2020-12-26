@@ -1,13 +1,11 @@
-package com.microservices.items.service;
+package com.microservices.models.feigns;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.microservices.items.clients.IProductClientRest;
 import com.microservices.models.Item;
 
 @Service(value = "itemServiceFeign")
