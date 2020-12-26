@@ -13,25 +13,26 @@ import org.springframework.web.client.RestTemplate;
 import com.microservices.models.Item;
 import com.microservices.models.Product;
 
-@Service
-public class ItemService implements IItemService {
+@Service(value = "itemServiceRestClient")
+public class ItemServiceRestClient implements IItemService {
 
 	@Autowired
 	private RestTemplate restclient;
-	
+
 	@Override
 	public List<Item> findAll() {
-		List<Product> products = Arrays.asList(restclient.getForObject("http://localhost:8001/findAll", Product[].class));
-		List<Item> items = products.stream().map(product -> new Item(product,1)).collect(Collectors.toList());
+		List<Product> products = Arrays
+				.asList(restclient.getForObject("http://localhost:8001/findAll", Product[].class));
+		List<Item> items = products.stream().map(product -> new Item(product, 1)).collect(Collectors.toList());
 		return items;
 	}
 
 	@Override
 	public Item findById(Long id, Integer quantity) {
-		Map<String,String> params = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<String, String>();
 		params.put("id", String.valueOf(id));
-		Product product = restclient.getForObject("http://localhost:8001/findById/{id}", Product.class,params);
-		return new Item(product,2);
+		Product product = restclient.getForObject("http://localhost:8001/findById/{id}", Product.class, params);
+		return new Item(product, 2);
 	}
 
 }
