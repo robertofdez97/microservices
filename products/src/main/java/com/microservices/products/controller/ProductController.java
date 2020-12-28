@@ -3,27 +3,28 @@ package com.microservices.products.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.microservices.models.Product;
-import com.microservices.products.service.IProductService;
+import com.microservices.common.models.Product;
+import com.microservices.products.services.IProductService;
 
-@RestController
+@Controller
 public class ProductController {
-
+	
 	@Autowired
-	private IProductService productService;
+	IProductService productService;
 	
 	@GetMapping("/findAll")
 	public List<Product> findAll(){
-		return (List<Product>) productService.findAll();
+		return productService.findAll();
 	}
 	
-	@GetMapping("/findById/{id}")
-	public Product findById(@PathVariable Long id) throws Exception{
-		return productService.findById(id).orElseThrow(() -> new Exception("Product not found"));
+	@GetMapping("/findById")
+	public Product findById(@RequestParam Long id){
+		return productService.findById(id);
 	}
+	
 	
 }

@@ -1,13 +1,13 @@
-package com.microservices.products;
+package com.microservices.common;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductsApplication {
+public class CommonApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductsApplication.class, args);
+		SpringApplication.run(CommonApplication.class, args);
 	}
 
 }
