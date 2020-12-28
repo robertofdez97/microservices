@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.microservices.common.models.Product;
 
-@FeignClient(name = "productsMicroservice", url = "localhost:8001")
+@FeignClient(name = "productsMicroservice")
 public interface ProductsClient {
 
 	@GetMapping("/findAll")
