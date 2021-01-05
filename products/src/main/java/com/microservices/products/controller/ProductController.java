@@ -1,8 +1,6 @@
 package com.microservices.products.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -30,9 +28,10 @@ public class ProductController {
 	}
 
 	@GetMapping("/findById")
-	public Product findById(@RequestParam Long id) {
+	public Product findById(@RequestParam Long id) throws Exception {
 		Product product = productService.findById(id);
 		product.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+		//Thread.sleep(2000L);
 		return product;
 	}
 

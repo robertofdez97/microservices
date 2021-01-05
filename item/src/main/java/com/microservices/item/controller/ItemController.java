@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservices.common.clients.ProductsClient;
 import com.microservices.common.models.Item;
 import com.microservices.common.models.Product;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 public class ItemController {
@@ -23,10 +24,17 @@ public class ItemController {
 		return productsClient.findAll().stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
 	}
 
+	//@HystrixCommand(fallbackMethod = "alternativeMethod")
 	@GetMapping("/findById")
 	public Item ItemfindById(@RequestParam Long id, @RequestParam Integer quantity) {
 		Product product = productsClient.findById(id);
 		Item item = new Item(product,quantity);
+		return item;
+	}
+	
+	public Item alternativeMethod(@RequestParam Long id, @RequestParam Integer quantity) {
+		
+		Item item = new Item(Product.builder().name("alternative").build(),quantity);
 		return item;
 	}
 
