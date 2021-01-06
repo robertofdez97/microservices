@@ -24,7 +24,7 @@ public class ItemController {
 		return productsClient.findAll().stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
 	}
 
-	//@HystrixCommand(fallbackMethod = "alternativeMethod")
+	@HystrixCommand(fallbackMethod = "alternativeMethod")
 	@GetMapping("/findById")
 	public Item ItemfindById(@RequestParam Long id, @RequestParam Integer quantity) {
 		Product product = productsClient.findById(id);
