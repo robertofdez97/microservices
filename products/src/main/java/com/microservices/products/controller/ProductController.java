@@ -35,7 +35,7 @@ public class ProductController {
 		Product product = productService.findById(id);
 		product.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 		//Thread.sleep(2000L);
-		return product;
+		return product; 
 	}
 	
 	
