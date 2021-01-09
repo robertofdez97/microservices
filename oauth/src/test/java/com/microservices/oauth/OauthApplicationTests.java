@@ -1,10 +1,10 @@
-package com.microservices.zuul;
+package com.microservices.oauth;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ZuulServerApplicationTests {
+class OauthApplicationTests {
 
 	@Test
 	void contextLoads() {

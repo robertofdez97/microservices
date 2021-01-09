@@ -40,7 +40,7 @@ public class User implements Serializable{
 	@Column(length = 60)
 	private String password;
 	
-	private String enabled;
+	private Boolean enabled;
 	
 	private String name;
 	
