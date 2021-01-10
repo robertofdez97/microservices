@@ -9,13 +9,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import org.hibernate.annotations.ManyToAny;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -53,5 +50,5 @@ public class User implements Serializable{
 	@JoinTable(uniqueConstraints = {@UniqueConstraint(columnNames = {"roles_id", "user_id"})})
 	private List<Role> roles;
 	
-
+	private Integer loginAttempts;
 }
