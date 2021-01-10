@@ -33,8 +33,8 @@ public class ItemController {
 	@Autowired
 	private Environment env;
 	
-	@Value(value = "${text.configuration}")
-	private String text;
+//	@Value(value = "${text.configuration}")
+//	private String text;
 	
 	@Autowired
 	ProductsClient productsClient;
@@ -60,7 +60,6 @@ public class ItemController {
 	@GetMapping("/getConfig")
 	public ResponseEntity<?> getConfig(@Value("${server.port}") String port){
 		Map<String,String> ret = new HashMap<>();
-		ret.put("text", text);
 		ret.put("port", port);
 		if(env.getActiveProfiles().length > 0 && env.getActiveProfiles()[0].equals("dev")) {
 			ret.put("emai.autor", env.getProperty("email.configuration"));
