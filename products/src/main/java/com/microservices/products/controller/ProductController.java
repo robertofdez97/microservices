@@ -26,6 +26,11 @@ public class ProductController {
 	public List<Product> findAll() {
 		return productService.findAll();
 	}
+	
+	@GetMapping(path = "/findById")
+	public Product findById(@RequestParam Long id) {
+		return productService.findById(id).get();
+	}
 
 	@PostMapping("/create")
 	public Product create(@RequestBody Product product) {
