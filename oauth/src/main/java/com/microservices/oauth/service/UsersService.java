@@ -14,11 +14,16 @@ import org.springframework.stereotype.Service;
 import com.microservices.commonsUsers.models.User;
 import com.microservices.oauth.client.UserClient;
 
+import brave.Tracer;
+
 @Service
 public class UsersService implements UserDetailsService,IUserService {
 
 	@Autowired
 	UserClient userClient;
+	
+	@Autowired
+	private Tracer tracrer;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -29,6 +34,7 @@ public class UsersService implements UserDetailsService,IUserService {
 			return new org.springframework.security.core.userdetails.User(
 					user.getUsername(), user.getPassword(), user.getEnabled(), true, true, true, authorities);
 		}
+		tracrer.currentSpan().tag("message.error", "username not found");
 		throw new UsernameNotFoundException("Username not found");
 	}
 
