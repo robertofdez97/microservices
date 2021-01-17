@@ -16,6 +16,7 @@
 	<description>users project</description>
 
 	<properties>
+		<swagger.version>3.0.0</swagger.version>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
 	</properties>
@@ -92,6 +93,17 @@
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
 		</dependency>
 	</dependencies>
 

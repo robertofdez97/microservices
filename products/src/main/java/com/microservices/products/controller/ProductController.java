@@ -16,7 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservices.common.models.Product;
 import com.microservices.products.service.IProductService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
+@Api(value = " Products microservice")
 public class ProductController {
 
 	@Autowired
@@ -27,6 +31,7 @@ public class ProductController {
 		return productService.findAll();
 	}
 	
+	@ApiOperation(value = "Return the Product if exist" , notes = "this is a note api")
 	@GetMapping(path = "/findById")
 	public Product findById(@RequestParam Long id) {
 		return productService.findById(id).get();
