@@ -1,2 +1,2 @@
 # microservices
-This is a repository to learn who working microservices.
+This is a repository to learn who microservices works.
